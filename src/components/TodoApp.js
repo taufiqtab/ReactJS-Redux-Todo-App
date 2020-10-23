@@ -6,7 +6,8 @@ import { addTodo, delTodo } from "../store/actions/todoAction"
 const TodoApp= ({ todos, addTodo, delTodo, input}) => {
 
   const addNewTodo = () => {
-    let lastid = todos[todos.length - 1].id + 1;
+    let lastid = todos[todos.length - 1] ? todos[todos.length - 1].id + 1 : 1;
+  
     const data = {
       id: lastid,
       title: input,
@@ -16,7 +17,6 @@ const TodoApp= ({ todos, addTodo, delTodo, input}) => {
   }
 
   const handleEmailChange = (e) => {
-    console.log(e.target.value)
     input = e.target.value;
   }
   
